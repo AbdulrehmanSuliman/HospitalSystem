@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flask Application</title>
+    </head>
+
+    <body>
+        
+
+        <h1>Add new Doctor</h1>
+        <form action="http://localhost:5000/addDoctor" method="POST">
+            <label for="name">Doctor Name:</label><br>
+            <input type="text" id="name" name="DoctorName"><br>
+
+            <label for="department">Doctor Department:</label><br>
+            <input type="text" id="department" name="DoctorDepartment"><br>
+
+            <label for="ID">Doctor ID:</label><br>
+            <input type="number" id="ID" name="DoctorID">
+            <br><br>
+            <input type="submit" value="Submit">
+          </form>
+        <a href="http://127.0.0.1:5000/">Home</a>
+    </body>
+</html>
