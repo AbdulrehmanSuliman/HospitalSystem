@@ -1,25 +1,28 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Flask Application</title>
-    </head>
-
-    <body>
-        
-
-        <h1>Add new Doctor</h1>
+{% extends "index.html" %}
+{% block main %}
         <form action="http://localhost:5000/addDoctor" method="POST">
-            <label for="name">Doctor Name:</label><br>
-            <input type="text" id="name" name="DoctorName"><br>
-
-            <label for="department">Doctor Department:</label><br>
-            <input type="text" id="department" name="DoctorDepartment"><br>
-
-            <label for="ID">Doctor ID:</label><br>
-            <input type="number" id="ID" name="DoctorID">
-            <br><br>
-            <input type="submit" value="Submit">
+            <div class="mb-3">
+              <label for="inputDocName" class="form-label">Doctor Name</label>
+              <input type="text" class="form-control" id="inputDocName" name="DoctorName">
+            </div>
+            <div class="mb-3">
+              <label for="inputDep" class="form-label">Department</label>
+              <input type="text" class="form-control" id="inputDep" name="DoctorDepartment">
+            </div>
+            <div class="mb-3">
+                <label for="inputID" class="form-label">ID</label>
+                <input type="number" class="form-control" id="inputID" name="DoctorID">
+              </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
-        <a href="http://127.0.0.1:5000/">Home</a>
-    </body>
-</html>
+          {% if succ %}
+          <div class="alert alert-success" role="alert">
+            {{succ}}
+          </div>
+          {% endif %}
+          {% if err %}
+          <div class="alert alert-danger" role="alert">
+            {{err}}
+          </div>
+          {% endif %}
+{% endblock %}

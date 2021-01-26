@@ -11,7 +11,7 @@ mycursor = mydb.cursor()
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+def home():
    return render_template("index.html")
 
 @app.route('/addDoctor', methods=['GET','POST'])
@@ -20,11 +20,14 @@ def add():
         name = request.form['DoctorName']
         dep = request.form['DoctorDepartment']
         id = request.form['DoctorID']
-        sql="INSERT INTO Doctors (name,department,id) VALUES (%s,%s,%s)"
-        values=(name,dep,id)
-        mycursor.execute(sql,values)
-        mydb.commit()
-        return render_template("index.html")
+        try:
+            sql="INSERT INTO Doctors (name,department,id) VALUES (%s,%s,%s)"
+            values=(name,dep,id)
+            mycursor.execute(sql,values)
+            mydb.commit()
+            return render_template("addDoctor.html", succ="Doctor Registered.")
+        except:
+            return render_template("addDoctor.html", err="Something wrong in the inputs.")
     else:
         return render_template("addDoctor.html")
 
