@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% block main %}
+        <form action="http://localhost:5000/addPatient" method="POST">
+            <div class="mb-3">
+              <label for="inputPatName" class="form-label">Patient Name</label>
+              <input type="text" class="form-control" id="inputPatName" name="PatientName">
+            </div>
+            <div class="mb-3">
+                <label for="inputPID" class="form-label">Patient ID</label>
+                <input type="number" class="form-control" id="inputPID" name="PatientID">
+            </div>
+            <div class="mb-3">
+                <label for="inputDocID" class="form-label">Doctor ID</label>
+                <input type="number" class="form-control" id="inputDocID" name="DocID">
+              </div>
+            <div class="mb-3">
+                <label for="inputRID" class="form-label">RoomID</label>
+                <input type="number" class="form-control" id="inputRID" name="RoomID">
+            </div>
+            <div class="mb-3">
+                <label for="inputTime" class="form-label">Date and time</label>
+                <input type="text" class="form-control" id="inputTime" name="Time">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          {% if succ %}
+          <div class="alert alert-success" role="alert">
+            {{succ}}
+          </div>
+          {% endif %}
+          {% if err %}
+          <div class="alert alert-danger" role="alert">
+            {{err}}
+          </div>
+          {% endif %}
+{% endblock %}
