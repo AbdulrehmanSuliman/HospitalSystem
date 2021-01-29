@@ -1,0 +1,32 @@
+{% extends "Patient.html" %}
+{% block sec %}
+        <form action="http://localhost:5000/addRequest" method="POST">
+            <div class="mb-3">
+              <label for="inputPatName" class="form-label">Patient Name</label>
+              <input type="text" class="form-control" id="inputPatName" name="PatientName">
+            </div>
+            <div class="mb-3">
+                <label for="inputPID" class="form-label">Patient ID</label>
+                <input type="number" class="form-control" id="inputPID" name="PatientID">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="Email">
+            </div>
+            <div class="mb-3">
+                <label for="inputdName" class="form-label">Doctor Name</label>
+                <input type="text" class="form-control" id="inputdName" name="dName">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          {% if succ %}
+          <div class="alert alert-success" role="alert">
+            {{succ}}
+          </div>
+          {% endif %}
+          {% if err %}
+          <div class="alert alert-danger" role="alert">
+            {{err}}
+          </div>
+          {% endif %}
+{% endblock %}
