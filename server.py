@@ -115,6 +115,13 @@ def view():
     myresult = mycursor.fetchall()
     return render_template("viewDoctor.html",DoctorsData=myresult)
 
+@app.route('/viewDoctorP')
+def viewPD():
+    mycursor.execute("SELECT * FROM Doctors")
+    row_headers=[x[0] for x in mycursor.description]
+    myresult = mycursor.fetchall()
+    return render_template("viewDoctorP.html",DoctorsData=myresult)
+
 @app.route('/viewPatients')
 @login_required
 def viewP():
