@@ -25,8 +25,8 @@ app.config['MAIL_SERVER'] = "smtp-mail.outlook.com"
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = "abd2000_mah@hotmail.com"
-app.config['MAIL_PASSWORD'] = "332211"
+app.config['MAIL_USERNAME'] = "flaskapp11@hotmail.com"
+app.config['MAIL_PASSWORD'] = "A332211b"
 mail = Mail(app)
 @app.route("/contact", methods=['GET', 'POST'])
 def contact():
